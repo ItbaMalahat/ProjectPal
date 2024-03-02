@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(45deg, #9400d3, #663399);
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background: linear-gradient(45deg, #7fffd4, #1877f2);
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #fff;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .message-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: linear-gradient(45deg, #663399, #9370db);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .message {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: linear-gradient(45deg, #663399, #9370db);
+            border-radius: 8px;
+            color: #fff;
+        }
+
+        .no-messages {
+            font-size: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="home.htm">Home</a>
+        <a href="homepage.htm">All Projects</a>
+        <a href="index.htm">Your Deadlines</a>
+        <a href="profile.htm">Profile</a>
+        <a href="messages.htm">Messages</a>
+        <a href="projectname.htm">Post a Project</a>
+        <a href="myprojects.htm">My Projects</a> <!-- Added My Projects option -->
+    </div>
+
+    <h2>Messages</h2>
+
+    <div class="message-container">
+        <!-- Sample Messages (Replace with actual data from backend) -->
+        <div class="message">Sender: John Doe<br>Message: Hi there!</div>
+        <div class="message">Sender: Jane Smith<br>Message: How are you?</div>
+        <!-- Add more messages as needed -->
+    </div>
+
+    <!-- If no messages -->
+    <p class="no-messages">No new messages.</p>
+
+</body>
+</html>
