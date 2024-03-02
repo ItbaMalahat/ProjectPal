@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Post Page</title>
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(45deg, #9400d3, #663399); /* Gradient background */
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background: linear-gradient(45deg, #7fffd4, #1877f2);
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .project {
+            border: 2px solid #9400d3;
+            border-radius: 10px;
+            width: 80%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(45deg, #663399, #9370db); /* Gradient project box color */
+            color: #fff;
+        }
+
+        button {
+            font-size: 24px;
+            background: linear-gradient(45deg, #9400d3, #663399); /* Gradient button background */
+            color: #ffffff;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background: #9370db; /* Hover color */
+        }
+    </style>
+</head>
+<div class="navbar">
+    <a href="home.htm">Home</a>
+    <a href="homepage.htm">All Projects</a>
+    <a href="index.htm">Your Deadlines</a>
+    <a href="profile.htm">Profile</a>
+    <a href="messages.htm">Messages</a>
+    <a href="projectname.htm">Post a Project</a>
+    <a href="myprojects.htm">My Projects</a> <!-- Added My Projects option -->
+</div>
+<body>
+
+    <h1>Project Post Page</h1>
+
+    <div class="project" id="project1">
+        <h2>Project Title 1</h2>
+        <p>Description of Project 1 goes here.</p>
+        <button onclick="viewDetails('project1')">View Details</button>
+    </div>
+
+    <div class="project" id="project2">
+        <h2>Project Title 2</h2>
+        <p>Description of Project 2 goes here.</p>
+        <button onclick="viewDetails('project2')">View Details</button>
+    </div>
+
+    <!-- Add more project posts as needed -->
+
+    <script>
+        function viewDetails(projectId) {
+            // Redirect to project details page with the specific project ID
+            window.location.href = 'project-details.html?id=' + projectId;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #87cefa, #008080);
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background: linear-gradient(135deg, #00008b, #4a4ad1);
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #fff;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            text-decoration: underline;
+        }
+
+        .profile-container {
+            background: linear-gradient(135deg, #4a4ad1, #9370db);
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1,
+        h2,
+        p {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #fff;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #fff;
+        }
+
+        p {
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .deactivate-btn {
+            background: linear-gradient(135deg, #e94057, #f27121);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .deactivate-btn:hover {
+            background: #f27121;
+        }
+    </style>
+</head>
+
+<body>
+
+  
+        <div class="navbar">
+            <a href="professorHome.htm">Home</a>
+           
+            <a href="professorProfile.htm">Profile</a>
+            <a href="professorMessages.htm">Messages</a>
+            <a href="professorSupervisesProject.htm">Supervise a Project</a>
+            <a href="professorMyProjects.htm">My Projects</a>
+        </div>
+    
+
+    <div class="profile-container">
+        <h1>Your Name</h1>
+        <h2>University Name</h2>
+        <p>Number of Projects Led: 3</p>
+        <p>Number of Projects Involved In: 2</p>
+        <p>University Email: your.university.email@example.com</p>
+        <p>Alternate Email: your.email@example.com</p>
+        <p>Contact Number: +1234567890</p>
+
+        <!-- Add more details as needed -->
+
+        <button class="deactivate-btn">Deactivate My Account</button>
+    </div>
+
+</body>
+
+</html>

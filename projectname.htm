@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Form</title>
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(45deg, #9400d3, #663399);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #ffffff;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background: linear-gradient(45deg, #7fffd4, #1877f2);
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #fff;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            text-decoration: underline;
+        }
+
+        form {
+            background-color: #fff;
+            color: #333;
+            border-radius: 8px;
+            padding: 20px;
+            width: 400px;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 32px;
+            text-align: center;
+            color: #663399;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #663399;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #9400d3;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        textarea:focus {
+            border-color: #9400d3;
+        }
+
+        .error-message {
+            color: #ff0000;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        button {
+            background-color: #9400d3;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 0 auto;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #5a2d86;
+        }
+
+        .remaining-projects {
+            text-align: center;
+            color: #9400d3;
+            margin-top: 20px;
+        }
+
+        .remaining-projects h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .remaining-projects p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="home.htm">Home</a>
+        <a href="homepage.htm">All Projects</a>
+        <a href="index.htm">Your Deadlines</a>
+        <a href="profile.htm">Profile</a>
+        <a href="messages.htm">Messages</a>
+        <a href="projectname.htm">Post a Project</a>
+        <a href="myprojects.htm">My Projects</a> <!-- Added My Projects option -->
+    </div>
+
+    <form id="projectForm" onsubmit="return validateForm()">
+        <h1>Project Form</h1>
+
+        <h2>Project Name:</h2>
+        <input type="text" id="projectName" name="projectName" required>
+        <div class="error-message" id="errorProjectName"></div>
+
+        <h2>Category:</h2>
+        <select id="category" name="category" title="Select a category" required>
+            <option value="AI">Artificial Intelligence</option>
+            <option value="ML">Machine Learning</option>
+            <option value="WebDev">Web Development</option>
+            <option value="AppDev">App Development</option>
+            <option value="GameDev">Game Development</option>
+            <option value="Others">Others</option>
+        </select>
+        <div class="error-message" id="errorCategory"></div>
+
+        <h2>Description:</h2>
+        <textarea id="description" name="description" rows="6" required></textarea>
+        <div class="error-message" id="errorDescription"></div>
+
+        <h2>Advisor:</h2>
+        <input type="text" id="advisor" name="advisor" required>
+        <div class="error-message" id="errorAdvisor"></div>
+
+        <h2>Project Lead:</h2>
+        <input type="text" id="projectLead" name="projectLead" required>
+        <div class="error-message" id="errorProjectLead"></div>
+
+        <h2>Duration:</h2>
+        <input type="text" id="duration" name="duration" placeholder="Enter project duration" required>
+        <div class="error-message" id="errorDuration"></div>
+
+        <h2>Maximum Number of Members:</h2>
+        <input type="text" id="maxMembers" name="maxMembers" placeholder="Enter maximum number of members" required>
+        <div class="error-message" id="errorMaxMembers"></div>
+
+        <button type="button" onclick="location.href='notifications.htm'()">Submit</button>
+
+        <div class="remaining-projects">
+            <h2>Remaining Projects:</h2>
+            <p id="projectsLeft">3</p>
+        </div>
+    </form>
+
+    <script>
+        function validateForm() {
+            var projectName = document.getElementById('projectName').value;
+            var category = document.getElementById('category').value;
+            var description = document.getElementById('description').value;
+            var advisor = document.getElementById('advisor').value;
+            var projectLead = document.getElementById('projectLead').value;
+            var duration = document.getElementById('duration').value;
+            var maxMembers = document.getElementById('maxMembers').value;
+
+            var isValid = true;
+
+            if (!projectName) {
+                document.getElementById('errorProjectName').innerHTML = 'Project Name is required';
+                isValid = false;
+            } else {
+                document.getElementById('errorProjectName').innerHTML = '';
+            }
+
+            if (category === 'default') {
+                document.getElementById('errorCategory').innerHTML = 'Category is required';
+                isValid = false;
+            } else {
+                document.getElementById('errorCategory').innerHTML = '';
+            }
+
+            if (!description) {
+                document.getElementById('errorDescription').innerHTML = 'Description is required';
+                isValid = false;
+            } else {
+                document.getElementById('errorDescription').innerHTML = '';
+            }
+
+            if (!advisor) {
+                document.getElementById('errorAdvisor').innerHTML = 'Advisor is required';
+                isValid = false;
+            } else {
+                document.getElementById('errorAdvisor').innerHTML = '';
+            }
+
+            if (!projectLead) {
+                document.getElementById('errorProjectLead').innerHTML = 'Project Lead is required';
+                isValid = false;
+            } else {
+                document.getElementById('errorProjectLead').innerHTML = '';
+            }
+
+            if (!duration) {
+                document.getElementById('errorDuration').innerHTML = 'Duration is required';
+                isValid = false;
+            } else {
+                document.getElementById('errorDuration').innerHTML = '';
+            }
+
+            if (!maxMembers) {
+                document.getElementById('errorMaxMembers').innerHTML = 'Maximum Number of Members is required';
+                isValid = false;
+            } else {
+                document.getElementById('errorMaxMembers').innerHTML = '';
+            }
+
+            return isValid;
+        }
+
+        function submitProject() {
+            if (validateForm()) {
+                var projectsLeftElement = document.getElementById('projectsLeft');
+                var projectsLeft = parseInt(projectsLeftElement.textContent, 10);
+                if (projectsLeft > 0) {
+                    projectsLeft -= 1;
+                    projectsLeftElement.textContent = projectsLeft;
+                    alert('Project submitted successfully!');
+                } else {
+                    alert('Maximum number of projects reached!');
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

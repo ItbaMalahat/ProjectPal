@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Project</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(45deg, #9400d3, #663399);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background: linear-gradient(45deg, #7fffd4, #1877f2);
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #fff;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            text-decoration: underline;
+        }
+
+        .update-project-container {
+            margin-top: 80px;
+        }
+
+        h1,
+        h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .project-details-container,
+        .members-container,
+        .advisor-section,
+        .milestones-container,
+        .calendar-container {
+            margin-top: 20px;
+        }
+
+        .members-count,
+        .advisor-status {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .milestone-item {
+            margin-bottom: 10px;
+        }
+
+        #calendar {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="home.htm">Home</a>
+        <a href="homepage.htm">All Projects</a>
+        <a href="index.htm">Your Deadlines</a>
+        <a href="profile.htm">Profile</a>
+        <a href="messages.htm">Messages</a>
+        <a href="projectname.htm">Post a Project</a>
+        <a href="myprojects.htm">My Projects</a> <!-- Added My Projects option -->
+    </div>
+    <div class="update-project-container">
+        <h1>Update Project</h1>
+
+        <div class="project-details-container">
+            <h2>Project Details</h2>
+            <p>Project ID: Your Project ID</p>
+            <p>Project Name: Your Project Name</p>
+            <p>Project Lead: Your Project Lead</p>
+            <p>Advisor: Advisor Name (if present)</p>
+            <!-- Add more project details as needed -->
+        </div>
+
+        <div class="members-container">
+            <h2>Members</h2>
+            <p class="members-count">Number of Members: 5</p>
+        </div>
+
+        <div class="advisor-section">
+            <h2>Advisor</h2>
+            <p class="advisor-status">Advisor: Present</p>
+        </div>
+
+        <div class="milestones-container">
+            <h2>Milestones</h2>
+            <div class="milestone-item">
+                <input type="text" placeholder="Milestone description" />
+                <input type="date" />
+            </div>
+        </div>
+
+        <div class="calendar-container">
+            <h2>Deadlines Calendar</h2>
+            <div id="calendar"></div>
+        </div>
+    </div>
+
+    <script>
+        // Your existing JavaScript code
+
+        // Example data for members and advisor (replace with actual data from your backend)
+        const membersCount = 5; // Replace with the actual member count
+        const isAdvisorPresent = true; // Replace with actual advisor presence status
+
+        // Display the number of members
+        document.querySelector('.members-count').textContent = `Number of Members: ${membersCount}`;
+
+        // Display the advisor status
+        const advisorStatusElement = document.querySelector('.advisor-status');
+        advisorStatusElement.textContent = `Advisor: ${isAdvisorPresent ? 'Present' : 'Not Present'}`;
+
+        // Initialize FullCalendar
+        $(document).ready(function () {
+            $('#calendar').fullCalendar({
+                // Add your calendar options here
+                // For demo purposes, just display a basic clickable calendar
+                dayClick: function (date, jsEvent, view) {
+                    alert('Clicked on: ' + date.format());
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
